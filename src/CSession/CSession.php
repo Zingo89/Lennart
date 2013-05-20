@@ -1,9 +1,9 @@
 <?php
 /**
-* Wrapper for session, read and store values on session. Maintains flash values for one pageload.
-*
-* @package LennartCore
-*/
+ * Wrapper for session, read and store values on session. Maintains flash values for one pageload.
+ *
+ * @package LennartCore
+ */
 class CSession {
 
   /**
@@ -12,7 +12,7 @@ class CSession {
   private $key;
   private $data = array();
   private $flash = null;
-   
+  
 
   /**
    * Constructor
@@ -39,19 +39,18 @@ class CSession {
 
 
   /**
-   * Set flash values, to be remembered one page request
+   * Get, Set or Unset the authenticated user
    */
-  public function SetFlash($key, $value) {
-    $this->data['flash'][$key] = $value;
-  }
+  public function SetAuthenticatedUser($profile) { $this->data['authenticated_user'] = $profile; }
+  public function UnsetAuthenticatedUser() { unset($this->data['authenticated_user']); }
+  public function GetAuthenticatedUser() { return $this->authenticated_user; }
 
 
-  /**
-   * Get flash values, if any.
+   /**
+   * Get or Set flash values, to be remembered one page request
    */
-  public function GetFlash($key) {
-    return isset($this->flash[$key]) ? $this->flash[$key] : null;
-  }
+  public function SetFlash($key, $value) { $this->data['flash'][$key] = $value; }
+  public function GetFlash($key) { return isset($this->flash[$key]) ? $this->flash[$key] : null; }
 
 
   /**
@@ -96,4 +95,5 @@ class CSession {
     }
   }
 
-}
+
+} 

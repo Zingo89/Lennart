@@ -5,7 +5,7 @@
 define('LENNART_INSTALL_PATH', dirname(__FILE__));
 define('LENNART_SITE_PATH', LENNART_INSTALL_PATH . '/site');
 
-require(LENNART_INSTALL_PATH.'/src/CLennart/bootstrap.php');
+require(LENNART_INSTALL_PATH.'/src/bootstrap.php');
 
 $le = CLennart::Instance();
 

@@ -1,14 +1,14 @@
 <?php
 /**
-* Database wrapper, provides a database API for the framework but hides details of implementation.
-*
-* @package LydiaCore
-*/
-class CMDatabase {
+ * Database wrapper, provides a database API for the framework but hides details of implementation.
+ *
+ * @package LennartCore
+ */
+class CDatabase {
 
-   /**
-    * Members
-    */
+  /**
+   * Members
+   */
   private $db = null;
   private $stmt = null;
   private static $numQueries = 0;
@@ -39,9 +39,9 @@ class CMDatabase {
   public function GetQueries() { return self::$queries; }
 
 
-   /**
-    * Execute a select-query with arguments and return the resultset.
-    */
+  /**
+   * Execute a select-query with arguments and return the resultset.
+   */
   public function ExecuteSelectQueryAndFetchAll($query, $params=array()){
     $this->stmt = $this->db->prepare($query);
     self::$queries[] = $query; 
