@@ -2,7 +2,7 @@
 /**
  * Admin Control Panel to manage admin stuff.
  * 
- * @package LydiaCore
+ * @package LennartCore
  */
 class CCAdminControlPanel extends CObject implements IController {
 
@@ -24,4 +24,4 @@ class CCAdminControlPanel extends CObject implements IController {
   }
  
 
-}  
+} 

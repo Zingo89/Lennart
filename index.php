@@ -1,4 +1,12 @@
 <?php
+/**
+ * All requests routed through here. This is an overview of what actaully happens during
+ * a request.
+ *
+ * @package LennartCore
+ */
+
+// ---------------------------------------------------------------------------------------
 //
 // PHASE: BOOTSTRAP
 //
@@ -9,10 +17,15 @@ require(LENNART_INSTALL_PATH.'/src/bootstrap.php');
 
 $le = CLennart::Instance();
 
+
+// ---------------------------------------------------------------------------------------
 //
 // PHASE: FRONTCONTROLLER ROUTE
 //
 $le->FrontControllerRoute();
+
+
+// ---------------------------------------------------------------------------------------
 //
 // PHASE: THEME ENGINE RENDER
 //

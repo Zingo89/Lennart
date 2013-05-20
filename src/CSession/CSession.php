@@ -6,34 +6,34 @@
  */
 class CSession {
 
-  /**
-   * Members
-   */
-  private $key;
-  private $data = array();
-  private $flash = null;
-  
+	/**
+	 * Members
+	 */
+	private $key;
+	private $data = array();
+	private $flash = null;
+	
 
-  /**
-   * Constructor
-   */
-  public function __construct($key) {
+	/**
+	 * Constructor
+	 */
+	public function __construct($key) {
     $this->key = $key;
   }
 
 
-  /**
-   * Set values
-   */
-  public function __set($key, $value) {
+	/**
+	 * Set values
+	 */
+	public function __set($key, $value) {
     $this->data[$key] = $value;
   }
 
 
-  /**
-   * Get values
-   */
-  public function __get($key) {
+	/**
+	 * Get values
+	 */
+	public function __get($key) {
     return isset($this->data[$key]) ? $this->data[$key] : null;
   }
 
@@ -64,12 +64,12 @@ class CSession {
   }
 
 
-  /**
-   * Get messages, if any. Each message is composed of a key and value. Use the key for styling.
-   *
-   * @returns array of messages. Each array-item contains a key and value.
-   */
-  public function GetMessages() {
+	/**
+	 * Get messages, if any. Each message is composed of a key and value. Use the key for styling.
+	 *
+	 * @returns array of messages. Each array-item contains a key and value.
+	 */
+	public function GetMessages() {
     return isset($this->flash['messages']) ? $this->flash['messages'] : null;
   }
 
@@ -96,4 +96,4 @@ class CSession {
   }
 
 
-} 
+}

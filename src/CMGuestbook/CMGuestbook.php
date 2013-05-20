@@ -1,9 +1,9 @@
 <?php
 /**
-* A model for a guestbok, to show off some basic controller & model-stuff.
-* 
-* @package LennartCore
-*/
+ * A model for a guestbok, to show off some basic controller & model-stuff.
+ * 
+ * @package LennartCore
+ */
 class CMGuestbook extends CObject implements IHasSQL {
 
 
@@ -80,4 +80,4 @@ class CMGuestbook extends CObject implements IHasSQL {
   }
 
   
-}
+} 

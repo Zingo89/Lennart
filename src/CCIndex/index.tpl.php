@@ -3,4 +3,4 @@
 
 <?php foreach($menu as $val): ?>
 <li><a href='<?=create_url($val)?>'><?=$val?></a>  
-<?php endforeach; ?>   
+<?php endforeach; ?>		

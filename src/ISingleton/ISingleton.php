@@ -1,9 +1,9 @@
 <?php
 /**
-* Interface for classes implementing the singleton pattern.
-*
-* @package LennartCore
-*/
+ * Interface for classes implementing the singleton pattern.
+ *
+ * @package LennartCore
+ */
 interface ISingleton {
-   public static function Instance();
+	public static function Instance();
 }

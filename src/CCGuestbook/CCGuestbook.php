@@ -1,9 +1,9 @@
 <?php
 /**
-* A guestbook controller as an example to show off some basic controller and model-stuff.
-* 
-* @package LennartCore
-*/
+ * A guestbook controller as an example to show off some basic controller and model-stuff.
+ * 
+ * @package LennartCore
+ */
 class CCGuestbook extends CObject implements IController {
 
   private $guestbookModel;
@@ -26,7 +26,7 @@ class CCGuestbook extends CObject implements IController {
     $this->views->SetTitle('Lennart Guestbook Example');
     $this->views->AddInclude(__DIR__ . '/index.tpl.php', array(
       'entries'=>$this->guestbookModel->ReadAll(), 
-      'formAction'=>$this->request->CreateUrl('', 'handler')
+      'form_action'=>$this->request->CreateUrl('', 'handler')
     ));
   }
   
@@ -48,4 +48,4 @@ class CCGuestbook extends CObject implements IController {
   }
   
 
-}
+} 

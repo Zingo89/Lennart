@@ -1,9 +1,19 @@
 <?php
 /**
-* Helpers for the template file.
-*/
-$le->data['header'] = '<h1>Lennart</h1>';
+ * Helpers for the template file.
+ */
+
+/**
+ * Add static entries for use in the template file. 
+ */
+$le->data['header'] = 'Lennart';
+$le->data['slogan'] = 'A PHP-based MVC-inspired CMF';
+$le->data['favicon']      = theme_url('logo_80x80.png');
+$le->data['logo']         = theme_url('logo_80x80.png');
+$le->data['logo_width']   = 80;
+$le->data['logo_height']  = 80;
 $le->data['footer'] = <<<EOD
+<p>Lennart &copy; by Mikael Roos (mos@dbwebb.se)</p>
 
 <p>Tools: 
 <a href="http://validator.w3.org/check/referer">html5</a>

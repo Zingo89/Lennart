@@ -10,7 +10,7 @@
  */
 function get_debug() {
   // Only if debug is wanted.
-  $ly = CLennart::Instance();  
+  $le = CLennart::Instance();  
   if(empty($le->config['debug'])) {
     return;
   }
@@ -33,11 +33,11 @@ function get_debug() {
   if(isset($le->config['debug']['timer']) && $le->config['debug']['timer']) {
     $html .= "<p>Page was loaded in " . round(microtime(true) - $le->timer['first'], 5)*1000 . " msecs.</p>";
   }    
-  if(isset($le->config['debug']['lydia']) && $le->config['debug']['lennart']) {
-    $html .= "<hr><h3>Debuginformation</h3><p>The content of CLydia:</p><pre>" . htmlent(print_r($ly, true)) . "</pre>";
+  if(isset($le->config['debug']['lydia']) && $le->config['debug']['lydia']) {
+    $html .= "<hr><h3>Debuginformation</h3><p>The content of CLennart:</p><pre>" . htmlent(print_r($le, true)) . "</pre>";
   }    
   if(isset($le->config['debug']['session']) && $le->config['debug']['session']) {
-    $html .= "<hr><h3>SESSION</h3><p>The content of CLydia->session:</p><pre>" . htmlent(print_r($ly->session, true)) . "</pre>";
+    $html .= "<hr><h3>SESSION</h3><p>The content of CLennart->session:</p><pre>" . htmlent(print_r($le->session, true)) . "</pre>";
     $html .= "<p>The content of \$_SESSION:</p><pre>" . htmlent(print_r($_SESSION, true)) . "</pre>";
   }    
   return $html;
@@ -67,7 +67,7 @@ function get_messages_from_session() {
 function login_menu() {
   $le = CLennart::Instance();
   if($le->user['isAuthenticated']) {
-    $items = "<a href='" . create_url('user/profile') . "'><img class='gravatar' src='" . get_gravatar(20) . "' alt=''> " . $ly->user['acronym'] . "</a> ";
+    $items = "<a href='" . create_url('user/profile') . "'><img class='gravatar' src='" . get_gravatar(20) . "' alt=''> " . $le->user['acronym'] . "</a> ";
     if($le->user['hasRoleAdministrator']) {
       $items .= "<a href='" . create_url('acp') . "'>acp</a> ";
     }
@@ -83,7 +83,41 @@ function login_menu() {
  * Get a gravatar based on the user's email.
  */
 function get_gravatar($size=null) {
-  return 'http://www.gravatar.com/avatar/' . md5(strtolower(trim(CLydia::Instance()->user['email']))) . '.jpg?r=pg&amp;d=wavatar&amp;' . ($size ? "s=$size" : null);
+  return 'http://www.gravatar.com/avatar/' . md5(strtolower(trim(CLennart::Instance()->user['email']))) . '.jpg?r=pg&amp;d=wavatar&amp;' . ($size ? "s=$size" : null);
+}
+
+
+/**
+ * Escape data to make it safe to write in the browser.
+ *
+ * @param $str string to escape.
+ * @returns string the escaped string.
+ */
+function esc($str) {
+  return htmlEnt($str);
+}
+
+
+/**
+ * Filter data according to a filter. Uses CMContent::Filter()
+ *
+ * @param $data string the data-string to filter.
+ * @param $filter string the filter to use.
+ * @returns string the filtered string.
+ */
+function filter_data($data, $filter) {
+  return CMContent::Filter($data, $filter);
+}
+
+
+/**
+ * Display diff of time between now and a datetime. 
+ *
+ * @param $start datetime|string
+ * @returns string
+ */
+function time_diff($start) {
+  return formatDateTimeDiff($start);
 }
 
 
