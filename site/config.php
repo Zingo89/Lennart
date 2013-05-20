@@ -1,66 +1,86 @@
 <?php
 /**
-* Site configuration, this file is changed by user per site.
-*
-*/
+ * Site configuration, this file is changed by user per site.
+ *
+ */
 
-/*
-* Set level of error reporting
-*/
+/**
+ * Set level of error reporting
+ */
 error_reporting(-1);
 ini_set('display_errors', 1);
 
-/*
-* Define session name
-*/
-$le->config['session_name'] = preg_replace('/[:\.\/-_]/', '', $_SERVER["SERVER_NAME"]);
-
-/*
-* Define server timezone
-*/
-$le->config['timezone'] = 'Europe/Stockholm';
-
-/*
-* Define internal character encoding
-*/
-$le->config['character_encoding'] = 'UTF-8';
-
-/*
-* Define language
-*/
-$le->config['language'] = 'en';
 
 /**
-* Define the controllers, their classname and enable/disable them.
-*
-* The array-key is matched against the url, for example: 
-* the url 'developer/dump' would instantiate the controller with the key "developer", that is 
-* CCDeveloper and call the method "dump" in that class. This process is managed in:
-* $ly->FrontControllerRoute();
-* which is called in the frontcontroller phase from index.php.
+* Set what to show as debug or developer information in the get_debug() theme helper.
 */
+$le->config['debug']['lennart'] = false;
+$le->config['debug']['session'] = false;
+$le->config['debug']['timer'] = true;
+$le->config['debug']['db-num-queries'] = true;
+$le->config['debug']['db-queries'] = true;
+
+
+/**
+ * What type of urls should be used?
+ * 
+ * default      = 0      => index.php/controller/method/arg1/arg2/arg3
+ * clean        = 1      => controller/method/arg1/arg2/arg3
+ * querystring  = 2      => index.php?q=controller/method/arg1/arg2/arg3
+ */
+$le->config['url_type'] = 1;
+
+/**
+ * Set a base_url to use another than the default calculated
+ */
+$le->config['base_url'] = null;
+
+/**
+ * Define session name
+ */
+$le->config['session_name'] = preg_replace('/[:\.\/-_]/', '', $_SERVER["SERVER_NAME"]);
+$le->config['session_key']  = 'lennart';
+
+/**
+ * Define server timezone
+ */
+$le->config['timezone'] = 'Europe/Stockholm';
+
+/**
+ * Define internal character encoding
+ */
+$le->config['character_encoding'] = 'UTF-8';
+
+/**
+ * Define language
+ */
+$le->config['language'] = 'en';
+
+
+/**
+ * Define the controllers, their classname and enable/disable them.
+ *
+ * The array-key is matched against the url, for example: 
+ * the url 'developer/dump' would instantiate the controller with the key "developer", that is 
+ * CCDeveloper and call the method "dump" in that class. This process is managed in:
+ * $le->FrontControllerRoute();
+ * which is called in the frontcontroller phase from index.php.
+ */
 $le->config['controllers'] = array(
   'index'     => array('enabled' => true,'class' => 'CCIndex'),
+  'developer' => array('enabled' => true,'class' => 'CCDeveloper'),
+  'guestbook' => array('enabled' => true,'class' => 'CCGuestbook'),
 );
 
 /**
-* Settings for the theme.
+* Set database(s).
 */
+$le->config['database'][0]['dsn'] = 'sqlite:' . LENNART_SITE_PATH . '/data/.ht.sqlite';
+
+/**
+ * Settings for the theme.
+ */
 $le->config['theme'] = array(
   // The name of the theme in the theme directory
   'name'    => 'core', 
 );
-
-/**
-* Set a base_url to use another than the default calculated
-*/
-$le->config['base_url'] = null;
-
-/**
-* What type of urls should be used?
-* 
-* default      = 0      => index.php/controller/method/arg1/arg2/arg3
-* clean        = 1      => controller/method/arg1/arg2/arg3
-* querystring  = 2      => index.php?q=controller/method/arg1/arg2/arg3
-*/
-$le->config['url_type'] = 1;
