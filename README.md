@@ -6,7 +6,7 @@ frameworks with a taste of Content Management Framework (CMF).
 
 Material in below links are mainly in swedish.
 
-* http://dbwebb.se/lydia/current (try out the code)
+* http://dbwebb.se/lennart/current (try out the code)
 * http://dbwebb.se/f/123 (forum with some tutorials on how the code was built, only in swedish)
 
 
@@ -23,13 +23,33 @@ Use of external libraries
 Lennart uses external libraries for state of the art samples. Any external module can be replaced or
 removed for less features but without disturbing the Lennart core functionality.
 
-The following external modules exists.
+The following external modules are included in Lennart.
 
+### HTMLPurifier
 HTMLPurifier by Edward Z. Yang to filter & format HTML.
 Website: http://htmlpurifier.org/ 
+Version: 4.4.0 (2012-01-18)
 License: LGPL
 Lennart path: `src/CHTMLPurifier`
 Used by: `CMContent`
+
+
+### lessphp
+lessphp by leaf to compile LESS.
+Website: http://leafo.net/lessphp
+Version: 0.3.4-2 (2012-04-17)
+License: Dual license, MIT LICENSE and GPL VERSION 3
+Lennart path: `themes/grid/lessphp`
+Used by: `themes/grid/style.php`
+
+
+### The Semantic Grid System
+by Tyler Tate/TwigKit to get grid layout through LESS.
+Website: http://semantic.gs/
+Version: 1.2 (2012-01-11)
+License: Apache License
+Lennart path: `themes/grid/semantic.gs`
+Used by: `themes/grid/style.less.css`
 
 
 History
@@ -38,6 +58,33 @@ History
 Todo.
 
 * Yes, a lot of things to do.
+
+v0.2.20 (2012-04-23)
+
+* Moved static data from `themes/grid/functions.php` to `site/config.php`.
+* Added `themes/functions.php get_tools()` for a list of useful debug tools.
+
+
+v0.2.19 (2012-04-23)
+
+* Added typography matching vertical grid to `theme/grid`.
+* Added reset.css.
+
+
+v0.2.18 (2012-04-23)
+
+* Updated `CViewContainer` and related items to map views to regions in theme.
+
+
+v0.2.17 (2012-04-23)
+
+* Integrated with semantic.gs though the new theme `theme/grid`.
+* Included sematic.gs version 1.2 (2012-01-11).
+
+
+v0.2.16 (2012-04-19)
+
+* Integrated with `lessphp` version 0.3.4-2 (2012-04-17) and LESS though a new theme, `theme/grid`.
 
 
 v0.2.15 (2012-04-16)

@@ -13,7 +13,6 @@ $le->data['logo']         = theme_url('logo_80x80.png');
 $le->data['logo_width']   = 80;
 $le->data['logo_height']  = 80;
 $le->data['footer'] = <<<EOD
-<p>Lennart &copy; by Mikael Roos (mos@dbwebb.se)</p>
 
 <p>Tools: 
 <a href="http://validator.w3.org/check/referer">html5</a>
