@@ -57,7 +57,36 @@ History
 
 Todo.
 
-* Yes, a lot of things to do.
+* Yes, a lot of things to do. No need to specify them, to many on the list... Wait until
+there is a stable version of Lennart.
+
+
+v0.2.24 (2012-05-07)
+
+* Updating `CMModules` and `CCModules` to display information on a module's main class
+using Reflection API.
+
+
+v0.2.23 (2012-05-07)
+
+* Creating menues through `site/config.php`.
+* Mapping menus to theme regions.
+* Child theme in `site/themes`.
+* Site specific controllers/models/modules in `site/src`.
+* Sample website in `site`.
+* Added delete of content.
+
+
+v0.2.22 (2012-05-02)
+
+* Enhanced installation procedure by adding one controller for installation, `module/install`.
+* Added interface `IModule` for all modules to implement that can manage themself for install/update/delete.
+
+
+v0.2.21 (2012-05-02)
+
+* Added module management through `CMModules` and `CCModules`.
+
 
 v0.2.20 (2012-04-23)
 
